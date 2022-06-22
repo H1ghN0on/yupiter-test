@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@components/Header/Header";
 import { AdaptiveContext } from "@contexts/AdaptiveContext";
+import Content from "@components/Content/Content";
 
 function App() {
   const adaptiveContext = React.useContext(AdaptiveContext);
@@ -20,7 +21,12 @@ function App() {
     };
   });
 
-  return <Header />;
+  return (
+    <div className="flex flex-col">
+      <Header />
+      <Content />
+    </div>
+  );
 }
 
 export default App;
