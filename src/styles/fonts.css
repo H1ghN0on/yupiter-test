@@ -18,3 +18,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("./fonts/Epilogue-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
