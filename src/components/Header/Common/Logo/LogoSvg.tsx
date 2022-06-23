@@ -11,7 +11,7 @@ export const LogoSvg = () => {
         id="Polygon"
         transform="translate(-1.175)"
         fill="none"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
       >
         <path
           d="M24,0,46.825,16.584,38.107,43.416H9.893L1.175,16.584Z"

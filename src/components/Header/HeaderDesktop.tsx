@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 
 const HeaderDesktop = () => {
   return (
-    <header className="pt-4 pb-14 bg-[#28293E] text-white">
+    <header className="pt-dHeaderTop pb-dHeaderBottom bg-header text-white">
       <Container>
         <section className="flex justify-between items-center">
           <Logo />

@@ -5,7 +5,7 @@ import Title from "./Common/Title";
 
 const HeaderMobile = () => {
   return (
-    <header className="pt-5 pb-16 bg-[#28293E] text-white">
+    <header className="pt-5 pb-16 bg-header text-white">
       <Container fluid>
         <section className="flex flex-col justify-around items-center">
           <Logo />

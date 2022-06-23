@@ -2,26 +2,22 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { ContentProps } from "./Content";
 import CategoryMenuDesktop from "../ui/Desktop/CategoryMenuDesktop";
-import CardListDesktop, {
-  CardType,
-} from "@components/ui/Desktop/CardListDesktop";
+import CardListDesktop from "@components/ui/Desktop/CardListDesktop";
+import LoadMoreButton from "./Common/LoadMoreButton";
 
 const ContentDesktop: React.FC<ContentProps> = ({
+  activeCard,
+  onCardClick,
   categories,
   activeCategory,
   onCategoryChange,
   cards,
+  onLoadMoreClick,
 }) => {
-  const [activeCard, setActiveCard] = React.useState<CardType>(cards[0]);
-
-  const onCardClick = (card: CardType) => {
-    setActiveCard(card);
-  };
-
   return (
-    <div className="bg-[#FDF0E9] flex flex-col items-center justify-center">
+    <div className="h-full bg-content flex flex-col items-center justify-center pb-44 pt-dContentTop">
       <Container>
-        <section className="w-full px-[15%] py-[70px]">
+        <section className="w-full px-dCategoriesX pb-dCategoriesBottom">
           <CategoryMenuDesktop
             items={categories}
             active={activeCategory}
@@ -31,10 +27,11 @@ const ContentDesktop: React.FC<ContentProps> = ({
         <CardListDesktop
           active={activeCard}
           onCardClick={onCardClick}
-          className="w-full grid grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-10 pb-20"
+          className="w-full grid grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-10 pb-dCardListBottom"
           items={cards}
         />
       </Container>
+      <LoadMoreButton onClick={onLoadMoreClick} />
     </div>
   );
 };

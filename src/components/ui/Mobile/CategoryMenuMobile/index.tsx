@@ -11,7 +11,7 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
   active,
   onChange,
 }) => {
-  const textStyle = "text-[#391400] opacity-[.64]";
+  const textStyle = "text-textPrimary opacity-[.64]";
 
   const [isActive, setActive] = React.useState<Boolean>(false);
   return (
@@ -20,21 +20,21 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
         onClick={() => {
           setActive(!isActive);
         }}
-        className="w-full border border-[#F3D1BF] bg-white rounded p-3 flex items-center"
+        className="w-full border border-selectOrange bg-white rounded p-3 flex items-center"
       >
         <div>
           <span className={textStyle}>{active.label}</span>
         </div>
         <div className="ml-auto">
           {isActive ? (
-            <CaretUpFill fill="#EF6D58" />
+            <CaretUpFill className="fill-selectArrowOrange" />
           ) : (
-            <CaretDownFill fill="#EF6D58" />
+            <CaretDownFill className="fill-selectArrowOrange" />
           )}
         </div>
       </div>
       {isActive && (
-        <ul className="absolute z-10 flex flex-col rounded w-full bg-white  border border-[#F3D1BF] p-3 space-y-3">
+        <ul className="absolute z-10 flex flex-col rounded w-full bg-white border border-selectOrange p-3 space-y-3">
           {items &&
             items.map((item: CategoryItemType) => (
               <CategoryItemMobile

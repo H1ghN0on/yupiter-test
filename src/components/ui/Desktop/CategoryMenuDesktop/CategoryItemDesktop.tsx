@@ -12,7 +12,9 @@ const CategoryItemDesktop: React.FC<CategoryItemProps> = ({
   active,
   onClick,
 }) => {
-  const textStyle = active ? "text-[#16CD53]" : "text-[#391400] opacity-[.64]";
+  const textStyle = active
+    ? "text-categoryActive"
+    : "text-textPrimary opacity-[.64]";
 
   const handleItemClick = (e: React.MouseEvent<HTMLLIElement>) => {
     onClick(item);

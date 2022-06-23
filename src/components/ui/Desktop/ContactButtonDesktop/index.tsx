@@ -7,7 +7,7 @@ const ContactButtonDesktop = () => {
 
   return (
     <button
-      className="px-[40px] py-[15px] border-2 rounded border-[#707070]"
+      className="px-[40px] py-[15px] border-2 rounded border-lightgray"
       onClick={handleButtonClick}
     >
       <span className="text-sm font-bold uppercase">Contact</span>
