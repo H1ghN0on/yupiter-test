@@ -1,9 +1,8 @@
+import { CategoryItemType } from "@appTypes/CategoryTypes";
 import React from "react";
 import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
-import {
-  CategoryItemType,
-  CatergoryMenuProps,
-} from "../../Desktop/CategoryMenuDesktop";
+import { CatergoryMenuProps } from "../../Desktop/CategoryMenuDesktop";
+
 import CategoryItemMobile from "./CategoryItemMobile";
 
 const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
@@ -12,7 +11,6 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
   onChange,
 }) => {
   const textStyle = "text-textPrimary opacity-[.64]";
-
   const [isActive, setActive] = React.useState<Boolean>(false);
   return (
     <div className="relative">

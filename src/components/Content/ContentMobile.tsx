@@ -1,25 +1,31 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { ContentProps } from "./Content";
-import CategoryMenuMobile from "../ui/Mobile/CategoryMenuMobile";
-import CardListMobile from "@components/ui/Mobile/CardListMobile";
+import { ContentProps } from ".";
+import CategoryMenuMobile from "@ui/Mobile/CategoryMenuMobile";
+import CardListMobile from "@ui/Mobile/CardListMobile";
 
 const ContentMobile: React.FC<
-  Omit<ContentProps, "activeCard" | "onCardClick">
-> = ({ categories, activeCategory, onCategoryChange, cards }) => {
+  Omit<ContentProps, "activeCard" | "onCardClick" | "onCardDelete">
+> = ({
+  categories,
+  activeCategory,
+  onNavCategoryChange,
+  onCardCategoryChange,
+  cards,
+}) => {
   return (
-    <div className="bg-content flex flex-col items-center justify-center pt-mContentBottom pb-mContentBottom">
+    <div className="bg-content flex flex-col items-center justify-center pt-mContentTop pb-mContentBottom">
       <Container fluid>
         <section className="w-full px-mCategoriesX pb-mCategoriesBottom">
           <CategoryMenuMobile
             items={categories}
             active={activeCategory}
-            onChange={onCategoryChange}
+            onChange={onNavCategoryChange}
           />
         </section>
         <CardListMobile
-          onCategoryClick={onCategoryChange}
-          className="w-full grid grid-cols-1 gap-y-10 pb-mCardListBottom justify-items-center"
+          onCategoryClick={onCardCategoryChange}
+          className="pb-mCardListBottom justify-items-center"
           items={cards}
         />
       </Container>

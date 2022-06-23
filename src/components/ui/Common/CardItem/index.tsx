@@ -1,12 +1,11 @@
-import { CardType } from "@components/ui/Desktop/CardListDesktop";
-import { CategoryItemType } from "@components/ui/Desktop/CategoryMenuDesktop";
+import { CardType } from "@appTypes/CardTypes";
 import React from "react";
 
 interface CardItemProps {
   item: CardType;
   className?: String;
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  onCategoryClick: (category: CategoryItemType) => void;
+  onClick?: (card: CardType) => void;
+  onCategoryClick: (card: CardType) => void;
 }
 
 const CardItem: React.FC<CardItemProps> = ({
@@ -15,17 +14,29 @@ const CardItem: React.FC<CardItemProps> = ({
   onClick,
   onCategoryClick,
 }) => {
+  const categoryRef = React.useRef(null);
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === categoryRef.current) {
+      onCategoryClick(item);
+    } else {
+      onClick && onClick(item);
+    }
+  };
+
   return (
-    <div onClick={onClick} className={`relative rounded-md ${className}`}>
-      <img className="rounded-md" src={item.img} alt="card" />
+    <div
+      onClick={handleCardClick}
+      className={`relative rounded-md ${className} cursor-pointer`}
+    >
+      <img className="w-full h-full rounded-md" src={item.img} alt="card" />
       <div className="absolute bottom-8 left-8">
         <div
-          onClick={() => {
-            onCategoryClick(item.category);
-          }}
-          className="bg-white px-4 py-1 rounded-full flex items-center justify-start"
+          ref={categoryRef}
+          id="category"
+          className="bg-white pl-4 pr-5 py-1 rounded-full flex justify-start mt-1 text-[#391400]"
         >
-          <span className="mt-1 text-[#391400]">{item.category.label}</span>
+          {item.category.label}
         </div>
         <div className="mt-4">
           <span className="text-white text-4xl uppercase font-bold">

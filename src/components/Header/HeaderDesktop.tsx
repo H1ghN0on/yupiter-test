@@ -1,6 +1,6 @@
-import ContactButton from "../ui/Desktop/ContactButtonDesktop";
+import ContactButton from "@ui/Desktop/ContactButtonDesktop";
 import Logo from "./Common/Logo";
-import NavigationDesktop from "../ui/Desktop/NavigationDesktop";
+import NavigationDesktop from "@ui/Desktop/NavigationDesktop";
 import Title from "./Common/Title";
 import { Container } from "react-bootstrap";
 

@@ -1,10 +1,5 @@
+import { NavigationItemType } from "@appTypes/NavigationTypes";
 import NavigationItemDesktop from "./NavigationItemDesktop";
-
-export interface NavigationItemType {
-  label: String;
-  accessor: String;
-  path: String;
-}
 
 const items: NavigationItemType[] = [
   {

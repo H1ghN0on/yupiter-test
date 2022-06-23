@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NavigationItemType } from ".";
+import { NavigationItemType } from "@appTypes/NavigationTypes";
 
 interface NavigationItemProps {
   item: NavigationItemType;
@@ -9,7 +9,7 @@ interface NavigationItemProps {
 const NavigationItemDesktop: React.FC<NavigationItemProps> = ({ item }) => {
   return (
     // <NavLink to={item.path}>
-    <li>
+    <li className="cursor-pointer">
       <span>{item.label}</span>
     </li>
     // </NavLink>

@@ -1,5 +1,5 @@
+import { CategoryItemType } from "@appTypes/CategoryTypes";
 import React from "react";
-import { CategoryItemType } from ".";
 
 export interface CategoryItemProps {
   item: CategoryItemType;
@@ -21,7 +21,7 @@ const CategoryItemDesktop: React.FC<CategoryItemProps> = ({
   };
 
   return (
-    <li onClick={handleItemClick}>
+    <li className="cursor-pointer" onClick={handleItemClick}>
       <span className={textStyle}>{item.label}</span>
     </li>
   );

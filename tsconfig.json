@@ -23,7 +23,9 @@
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
-      "@contexts/*": ["contexts/*"]
+      "@contexts/*": ["contexts/*"],
+      "@ui/*": ["components/ui/*"],
+      "@appTypes/*": ["types/*"]
     },
   },
 

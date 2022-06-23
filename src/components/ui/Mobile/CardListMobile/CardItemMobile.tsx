@@ -1,11 +1,10 @@
+import { CardType } from "@appTypes/CardTypes";
 import CardItem from "@components/ui/Common/CardItem";
-import { CardType } from "@components/ui/Desktop/CardListDesktop";
-import { CategoryItemType } from "@components/ui/Desktop/CategoryMenuDesktop";
 import React from "react";
 
 interface CardItemMobileProps {
   item: CardType;
-  onCategoryClick: (category: CategoryItemType) => void;
+  onCategoryClick: (card: CardType) => void;
 }
 
 const CardItemMobile: React.FC<CardItemMobileProps> = ({

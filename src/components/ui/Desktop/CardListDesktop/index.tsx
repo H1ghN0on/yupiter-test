@@ -1,21 +1,15 @@
-import LoadMoreButton from "@components/Content/Common/LoadMoreButton";
+import { CardType } from "@appTypes/CardTypes";
+import LoadMoreButton from "@components/ui/Common/LoadMoreButton";
+import useCardList from "@components/ui/hooks/CardListHook";
 import React from "react";
-import { CategoryItemType } from "../CategoryMenuDesktop";
 import CardItemDesktop from "./CardItemDesktop";
-
-export interface CardType {
-  category: CategoryItemType;
-  name: string;
-  img: string;
-  id: number;
-}
 
 interface CardListProps {
   className: string;
   items: CardType[];
   onCardClick: (item: CardType) => void;
   active: CardType;
-  onCategoryClick: (category: CategoryItemType) => void;
+  onCategoryClick: (card: CardType) => void;
 }
 
 const CardListDesktop: React.FC<CardListProps> = ({
@@ -25,29 +19,16 @@ const CardListDesktop: React.FC<CardListProps> = ({
   onCategoryClick,
   active,
 }) => {
-  const MAXIMUM_NUMBER_OF_CARDS = 9;
-  const getCurrentActiveNumber = React.useCallback((): number => {
-    return items.length < MAXIMUM_NUMBER_OF_CARDS
-      ? items.length
-      : MAXIMUM_NUMBER_OF_CARDS;
-  }, [items.length]);
-
-  const [activeNumber, setActiveNumber] = React.useState<number>(
-    getCurrentActiveNumber()
-  );
-
-  React.useEffect(() => {
-    setActiveNumber(getCurrentActiveNumber());
-  }, [items, getCurrentActiveNumber]);
-
-  const onLoadMoreClick = () => {
-    setActiveNumber(activeNumber + MAXIMUM_NUMBER_OF_CARDS);
-  };
-
+  const { cards, onLoadMoreClick, activeNumber } = useCardList(items);
   return (
     <>
-      <div className={className}>
-        {items.slice(0, activeNumber).map((item) => (
+      <div
+        className={
+          `w-full grid grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-10  ` +
+          className
+        }
+      >
+        {cards.slice(0, activeNumber).map((item) => (
           <CardItemDesktop
             onCategoryClick={onCategoryClick}
             active={active.id === item.id}
@@ -58,7 +39,7 @@ const CardListDesktop: React.FC<CardListProps> = ({
         ))}
       </div>
       <div className="flex justify-center">
-        {activeNumber !== items.length && (
+        {activeNumber !== cards.length && (
           <LoadMoreButton onClick={onLoadMoreClick} />
         )}
       </div>

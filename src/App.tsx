@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "@components/Header/Header";
+
 import { AdaptiveContext } from "@contexts/AdaptiveContext";
-import Content from "@components/Content/Content";
+import Header from "@components/Header";
+import Content from "@components/Content";
 
 function App() {
   const adaptiveContext = React.useContext(AdaptiveContext);

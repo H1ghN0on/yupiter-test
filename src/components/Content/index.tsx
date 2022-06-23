@@ -1,12 +1,12 @@
 import React from "react";
 import { AdaptiveContext } from "@contexts/AdaptiveContext";
-import { CategoryItemType } from "../ui/Desktop/CategoryMenuDesktop";
-import { CardType } from "@components/ui/Desktop/CardListDesktop";
+import { CardType } from "@appTypes/CardTypes";
+import { CategoryItemType } from "@appTypes/CategoryTypes";
 
 const ContentDesktopLazy = React.lazy(() => import("./ContentDesktop"));
 const ContentMobileLazy = React.lazy(() => import("./ContentMobile"));
 
-const cards: CardType[] = [
+let cards: CardType[] = [
   {
     id: 0,
     category: {
@@ -207,10 +207,12 @@ const emptyCard = {
 export interface ContentProps {
   categories: CategoryItemType[];
   activeCategory: CategoryItemType;
-  onCategoryChange: (item: CategoryItemType) => void;
+  onNavCategoryChange: (item: CategoryItemType) => void;
+  onCardCategoryChange: (card: CardType) => void;
   cards: CardType[];
   activeCard: CardType;
   onCardClick: (card: CardType) => void;
+  onCardDelete: () => void;
 }
 
 const Content = () => {
@@ -222,8 +224,12 @@ const Content = () => {
 
   const [activeCard, setActiveCard] = React.useState<CardType>(emptyCard);
 
-  const onCategoryChange = (category: CategoryItemType) => {
-    setActiveCard(emptyCard);
+  const onNavCategoryChange = (category: CategoryItemType) => {
+    if (activeCategory.accessor === category.accessor) return;
+
+    //потушить карту при переключении категории
+    // setActiveCard(emptyCard);
+
     setActiveCategory(category);
     if (category.accessor === "all") {
       setActiveCards(cards);
@@ -233,8 +239,26 @@ const Content = () => {
       );
     }
   };
+
+  const onCardCategoryChange = (card: CardType) => {
+    if (activeCategory.accessor === card.category.accessor) {
+      setActiveCard(card);
+    } else {
+      onNavCategoryChange(card.category);
+    }
+  };
+
   const onCardClick = (card: CardType) => {
-    setActiveCard(card);
+    if (activeCard === card) {
+      setActiveCard(emptyCard);
+    } else {
+      setActiveCard(card);
+    }
+  };
+
+  const onActiveCardDelete = () => {
+    cards = cards.filter((_card) => _card !== activeCard);
+    setActiveCards(activeCards.filter((_card) => _card !== activeCard));
   };
 
   const adaptiveContext = React.useContext(AdaptiveContext);
@@ -245,7 +269,8 @@ const Content = () => {
         <ContentMobileLazy
           categories={categories}
           activeCategory={activeCategory}
-          onCategoryChange={onCategoryChange}
+          onNavCategoryChange={onNavCategoryChange}
+          onCardCategoryChange={onCardCategoryChange}
           cards={activeCards}
         />
       ) : (
@@ -253,9 +278,11 @@ const Content = () => {
           cards={activeCards}
           categories={categories}
           activeCategory={activeCategory}
-          onCategoryChange={onCategoryChange}
+          onNavCategoryChange={onNavCategoryChange}
+          onCardCategoryChange={onCardCategoryChange}
           activeCard={activeCard}
           onCardClick={onCardClick}
+          onCardDelete={onActiveCardDelete}
         />
       )}
     </React.Suspense>

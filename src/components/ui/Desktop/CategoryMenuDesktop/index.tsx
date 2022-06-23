@@ -1,10 +1,6 @@
+import { CategoryItemType } from "@appTypes/CategoryTypes";
 import React from "react";
 import CategoryItemDesktop from "./CategoryItemDesktop";
-
-export interface CategoryItemType {
-  label: String;
-  accessor: String;
-}
 
 export interface CatergoryMenuProps {
   active: CategoryItemType;
