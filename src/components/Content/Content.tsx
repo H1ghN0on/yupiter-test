@@ -61,6 +61,114 @@ const cards: CardType[] = [
     name: "Sofa",
     img: "/test.jpg",
   },
+  {
+    id: 6,
+    category: {
+      label: "Design",
+      accessor: "design",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 7,
+    category: {
+      label: "Illustration",
+      accessor: "illustration",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 8,
+    category: {
+      label: "Motion",
+      accessor: "motion",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 9,
+    category: {
+      label: "Branding",
+      accessor: "branding",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 10,
+    category: {
+      label: "Illustration",
+      accessor: "illustration",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 11,
+    category: {
+      label: "Branding",
+      accessor: "branding",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 12,
+    category: {
+      label: "Design",
+      accessor: "design",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 13,
+    category: {
+      label: "Illustration",
+      accessor: "illustration",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 14,
+    category: {
+      label: "Motion",
+      accessor: "motion",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 15,
+    category: {
+      label: "Branding",
+      accessor: "branding",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 16,
+    category: {
+      label: "Illustration",
+      accessor: "illustration",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
+  {
+    id: 17,
+    category: {
+      label: "Branding",
+      accessor: "branding",
+    },
+    name: "Sofa",
+    img: "/test.jpg",
+  },
 ];
 
 const categories: CategoryItemType[] = [
@@ -101,7 +209,6 @@ export interface ContentProps {
   activeCategory: CategoryItemType;
   onCategoryChange: (item: CategoryItemType) => void;
   cards: CardType[];
-  onLoadMoreClick: () => void;
   activeCard: CardType;
   onCardClick: (card: CardType) => void;
 }
@@ -113,7 +220,7 @@ const Content = () => {
     categories[0]
   );
 
-  const [activeCard, setActiveCard] = React.useState<CardType>(cards[0]);
+  const [activeCard, setActiveCard] = React.useState<CardType>(emptyCard);
 
   const onCategoryChange = (category: CategoryItemType) => {
     setActiveCard(emptyCard);
@@ -126,12 +233,9 @@ const Content = () => {
       );
     }
   };
-
   const onCardClick = (card: CardType) => {
     setActiveCard(card);
   };
-
-  const onLoadMoreClick = () => {};
 
   const adaptiveContext = React.useContext(AdaptiveContext);
 
@@ -143,7 +247,6 @@ const Content = () => {
           activeCategory={activeCategory}
           onCategoryChange={onCategoryChange}
           cards={activeCards}
-          onLoadMoreClick={onLoadMoreClick}
         />
       ) : (
         <ContentDesktopLazy
@@ -151,7 +254,6 @@ const Content = () => {
           categories={categories}
           activeCategory={activeCategory}
           onCategoryChange={onCategoryChange}
-          onLoadMoreClick={onLoadMoreClick}
           activeCard={activeCard}
           onCardClick={onCardClick}
         />

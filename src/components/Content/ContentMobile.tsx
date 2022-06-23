@@ -3,17 +3,10 @@ import { Container } from "react-bootstrap";
 import { ContentProps } from "./Content";
 import CategoryMenuMobile from "../ui/Mobile/CategoryMenuMobile";
 import CardListMobile from "@components/ui/Mobile/CardListMobile";
-import LoadMoreButton from "./Common/LoadMoreButton";
 
 const ContentMobile: React.FC<
   Omit<ContentProps, "activeCard" | "onCardClick">
-> = ({
-  categories,
-  activeCategory,
-  onCategoryChange,
-  cards,
-  onLoadMoreClick,
-}) => {
+> = ({ categories, activeCategory, onCategoryChange, cards }) => {
   return (
     <div className="bg-content flex flex-col items-center justify-center pt-mContentBottom pb-mContentBottom">
       <Container fluid>
@@ -25,11 +18,11 @@ const ContentMobile: React.FC<
           />
         </section>
         <CardListMobile
+          onCategoryClick={onCategoryChange}
           className="w-full grid grid-cols-1 gap-y-10 pb-mCardListBottom justify-items-center"
           items={cards}
         />
       </Container>
-      <LoadMoreButton onClick={onLoadMoreClick} />
     </div>
   );
 };
