@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryItemType } from "./CategoryMenuDesktop";
+import { CategoryItemType } from ".";
 
 export interface CategoryItemProps {
   item: CategoryItemType;

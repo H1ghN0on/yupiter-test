@@ -1,14 +1,17 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Logo from "./Common/Logo";
 import Title from "./Common/Title";
 
 const HeaderMobile = () => {
   return (
-    <header className="px-[20px] pt-[20px] pb-[70px] bg-[#28293E] text-white">
-      <section className="flex flex-col justify-around items-center">
-        <Logo />
-        <Title className="mt-[80px]" />
-      </section>
+    <header className="pt-5 pb-16 bg-[#28293E] text-white">
+      <Container fluid>
+        <section className="flex flex-col justify-around items-center">
+          <Logo />
+          <Title className="mt-20" />
+        </section>
+      </Container>
     </header>
   );
 };

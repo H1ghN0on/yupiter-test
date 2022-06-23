@@ -31,14 +31,14 @@ const items: NavigationItemType[] = [
 
 const NavigationDesktop = () => {
   return (
-    <nav className="w-full px-[15%]">
+    <div className="w-full px-[15%]">
       <ul className="flex items-center justify-between">
         {items &&
           items.map((item: NavigationItemType, index: number) => (
             <NavigationItemDesktop key={index} item={item} />
           ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

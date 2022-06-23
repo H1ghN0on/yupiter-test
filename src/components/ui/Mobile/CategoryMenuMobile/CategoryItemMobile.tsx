@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryItemProps } from "../Desktop/CategoryItemDesktop";
+import { CategoryItemProps } from "../../Desktop/CategoryMenuDesktop/CategoryItemDesktop";
 
 const CategoryItemMobile: React.FC<CategoryItemProps> = ({
   item,

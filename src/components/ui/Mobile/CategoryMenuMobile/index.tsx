@@ -3,7 +3,7 @@ import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
 import {
   CategoryItemType,
   CatergoryMenuProps,
-} from "../Desktop/CategoryMenuDesktop";
+} from "../../Desktop/CategoryMenuDesktop";
 import CategoryItemMobile from "./CategoryItemMobile";
 
 const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
@@ -15,7 +15,7 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
 
   const [isActive, setActive] = React.useState<Boolean>(false);
   return (
-    <>
+    <div className="relative">
       <div
         onClick={() => {
           setActive(!isActive);
@@ -34,7 +34,7 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
         </div>
       </div>
       {isActive && (
-        <ul className="flex flex-col rounded w-full bg-white  border border-[#F3D1BF] p-3 space-y-3">
+        <ul className="absolute z-10 flex flex-col rounded w-full bg-white  border border-[#F3D1BF] p-3 space-y-3">
           {items &&
             items.map((item: CategoryItemType) => (
               <CategoryItemMobile
@@ -48,7 +48,7 @@ const CategoryMenuMobile: React.FC<CatergoryMenuProps> = ({
             ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 

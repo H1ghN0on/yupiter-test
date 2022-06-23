@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "@styles/index.css";
+import "bootstrap/dist/css/bootstrap-grid.css";
 import App from "./App";
 import { AdaptiveContextProvider } from "@contexts/AdaptiveContext";
 

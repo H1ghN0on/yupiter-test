@@ -1,19 +1,23 @@
-import ContactButton from "./Desktop/ContactButtonDesktop";
+import ContactButton from "../ui/Desktop/ContactButtonDesktop";
 import Logo from "./Common/Logo";
-import NavigationDesktop from "./Desktop/NavigationDesktop";
+import NavigationDesktop from "../ui/Desktop/NavigationDesktop";
 import Title from "./Common/Title";
+import { Container } from "react-bootstrap";
 
 const HeaderDesktop = () => {
   return (
-    <header className="px-[135px] pt-[16px] pb-[58px] bg-[#28293E] text-white">
-      <section className="flex justify-between items-center">
-        <Logo />
-        <NavigationDesktop />
-        <ContactButton />
-      </section>
-      <section className="flex justify-center mt-[85px]">
-        <Title />
-      </section>
+    <header className="pt-4 pb-14 bg-[#28293E] text-white">
+      <Container>
+        <section className="flex justify-between items-center">
+          <Logo />
+          <NavigationDesktop />
+          <ContactButton />
+        </section>
+
+        <section className="flex justify-center mt-20">
+          <Title />
+        </section>
+      </Container>
     </header>
   );
 };
