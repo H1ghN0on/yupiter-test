@@ -32,7 +32,7 @@ const ContentDesktop: React.FC<ContentProps> = ({
   }, [handleDelKeyClick]);
 
   return (
-    <div className="h-full bg-content flex flex-col items-center justify-center pb-44 pt-dContentTop">
+    <div className="h-full bg-content flex flex-1 flex-col items-center pb-44 pt-dContentTop">
       <Container>
         <section className="w-full px-dCategoriesX pb-dCategoriesBottom">
           <CategoryMenuDesktop
@@ -45,7 +45,7 @@ const ContentDesktop: React.FC<ContentProps> = ({
           onCategoryClick={onCardCategoryChange}
           active={activeCard}
           onCardClick={onCardClick}
-          className="pb-dCardListBottom"
+          className="pb-dCardListBottom grow"
           items={cards}
         />
       </Container>

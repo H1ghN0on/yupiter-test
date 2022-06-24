@@ -29,7 +29,8 @@ module.exports = {
         'mContentBottom': "224px",
         'dCardListBottom': "80px",
         'mCardListBottom': "48px",
-      }
+      },
+
     },
   },
   plugins: [],

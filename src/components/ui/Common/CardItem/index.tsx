@@ -33,15 +33,12 @@ const CardItem: React.FC<CardItemProps> = ({
       <div className="absolute bottom-8 left-8">
         <div
           ref={categoryRef}
-          id="category"
-          className="bg-white pl-4 pr-5 py-1 rounded-full flex justify-start mt-1 text-[#391400]"
+          className="inline-block bg-white pl-4 pr-5 py-1 rounded-full pt-2 text-[#391400]"
         >
           {item.category.label}
         </div>
         <div className="mt-4">
-          <span className="text-white text-4xl uppercase font-bold">
-            {item.name}
-          </span>
+          <span className="text-white text-4xl">{item.name}</span>
         </div>
       </div>
     </div>
